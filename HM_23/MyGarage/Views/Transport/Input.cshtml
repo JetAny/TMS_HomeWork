@@ -1,0 +1,30 @@
+﻿@using MyGarage
+@using MyGarage.Models;
+
+@model dynamic
+@{
+    ViewData["Title"] = "Формирование гаржей";
+}
+<div class="text-center">
+    <h1 class="display-4">В гаражах находятся</h1>
+    
+</div>
+<table class="table">
+    @foreach(Garage garage in Model.Garages)
+    {
+        if (garage.Id != 0)
+        {
+            <tr><td>Гараж № @garage.Id</td><td> в городе @garage.Sity</td></tr>
+
+            foreach (ITransport p in garage.transportOnGarage)
+            {
+                <tr><td>@p.IdTr</td><td>@p.brand</td><td>@p.namber</td><td>@p.fuelType</td><td>@p.fuelQuantity</td></tr>
+            }
+
+        }
+        else
+        {
+            <tr><td>Id</td><td>Марка</td><td>номер</td><td>вид топлива</td><td>количество топлива</td></tr>
+        }
+    }    
+</table>

@@ -1,15 +1,26 @@
+using DBmyGarage;
+using DBmyGarage.Interfaces;
+using MyGarage;
+using MyGarage.Intrefaces;
+using MyGarage.Middleware;
+using MyGarage.Models;
+
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<IDbContext, mygarageContext>();
+
+builder.Services.AddScoped<IGetAllTransport, GetAllTransport>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -20,8 +31,13 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//app.UseMiddleware<LoginMiddleware>();
+//app.UseMiddleware<PasswordMiddleware>();
+
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{Id?}");
 
 app.Run();
+

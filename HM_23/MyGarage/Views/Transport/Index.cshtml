@@ -1,0 +1,23 @@
+﻿@using MyGarage.Models;
+
+@model dynamic
+@{
+    ViewData["Title"] = "My GARAGES";
+}
+<form class="form-inline">
+    <label>Выберите Garage:</label>
+    <select name="Idt" class="form-control">
+        @foreach(Garage garage in Model.Garages)
+        {
+            <option value="@garage.Id">@garage.Sity</option>
+        }
+    </select>
+    <input type="submit" value="выбрать"/>
+</form>
+<br />
+<table class="table">
+    @foreach (ITransport p in Model.Transport)
+    {
+        <tr><td>@p.IdTr</td><td>@p.namber</td><td>@p.brand</td><td>@p.fuelType</td><td>@p.fuelQuantity</td></tr>
+    }
+</table>
