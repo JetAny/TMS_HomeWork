@@ -1,12 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 
-namespace DBmyGarage.Interfaces
+namespace MyGarageDB.Interfaces
 {
     public interface IDbContext
     {
-        DbSet<Garage> Garage { get; set; }
-        DbSet<Transport> Transport { get; set; }
-        DbSet<Type> Type { get; set; }
+        DbSet<GarageDB> Garages { get; set; }
+        DbSet<TransportDB> Transports { get; set; }
+        DbSet<TypeDB> Types { get; set; }
+
+        int SaveChanges();
     }
 }

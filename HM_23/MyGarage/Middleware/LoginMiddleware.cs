@@ -1,4 +1,4 @@
-﻿namespace MyGarage.Middleware
+﻿namespace MyGarageMVC.Middleware
 {
     public class LoginMiddleware
     {

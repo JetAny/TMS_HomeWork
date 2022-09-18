@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGarage", "MyGarage.csproj", "{E82F9CDC-7891-42C5-A770-C8D3B552C62D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGarageMVC", "MyGarageMVC.csproj", "{E82F9CDC-7891-42C5-A770-C8D3B552C62D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBmyGarage", "..\DBmyGarage\DBmyGarage\DBmyGarage.csproj", "{CFC1218A-30AE-47FC-A3A6-5EB7A657CE35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGarageDB", "..\DBmyGarage\DBmyGarage\MyGarageDB.csproj", "{CFC1218A-30AE-47FC-A3A6-5EB7A657CE35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

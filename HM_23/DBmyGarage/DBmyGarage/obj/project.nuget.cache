@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P6GpsU+r9hdMN5fjFx1UBm+kiY4h3xEIUmjtqT1NoMqbk1Og2ksn9XszSTg7T5P5m5a0MsfD9/bR78rlTBP+GA==",
+  "dgSpecHash": "VQjwtCmTBrJ1nkO4yfLWC09aLiROsXnBX0fK0VaziGfQe7N+fbuqOwILPLOLTIC4FG1ORVD+4XsOFBfgzNIbow==",
   "success": true,
-  "projectFilePath": "D:\\My C#\\LessonCourse\\TMS_HomeWork\\HM_23\\DBmyGarage\\DBmyGarage\\DBmyGarage.csproj",
+  "projectFilePath": "D:\\My C#\\LessonCourse\\TMS_HomeWork\\HM_23\\DBmyGarage\\DBmyGarage\\MyGarageDB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andrei\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\andrei\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.8\\microsoft.entityframeworkcore.6.0.8.nupkg.sha512",

@@ -14,13 +14,14 @@
 }
         <h2>Изменения</h2>
        <body>
-          <form class="form-inline" action="~/Home/editTransport" method="post"> 
+          <form class="form-inline" action="~/Home/Update" method="post"> 
              <label>Измените номер:</label>
-             <p><input name="namber" value=@Model.Transport.namber></p> 
+             <p><input name="namber" value=@Model.Transport.Namber></p> 
+
              <label>Измените марку :</label>
-             <p><input name="brand" value=@Model.Transport.brand></p>
+             <p><input name="brand" value=@Model.Transport.Brand></p>
              <label>Выберите кол-во топлива:</label>
-             <p><input name="fuelQuantity" value=@Model.Transport.fuelQuantity></p>
+             <p><input name="fuelQuantity" value=@Model.Transport.FuelQuntity></p>
              <label>Введите тип топлива:</label>
              <select name="fuelType" class="form-control">
                 <option value="Электричество">Электричество</option>

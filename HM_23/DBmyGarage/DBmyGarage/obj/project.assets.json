@@ -752,9 +752,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My C#\\LessonCourse\\TMS_HomeWork\\HM_23\\DBmyGarage\\DBmyGarage\\DBmyGarage.csproj",
-      "projectName": "DBmyGarage",
-      "projectPath": "D:\\My C#\\LessonCourse\\TMS_HomeWork\\HM_23\\DBmyGarage\\DBmyGarage\\DBmyGarage.csproj",
+      "projectUniqueName": "D:\\My C#\\LessonCourse\\TMS_HomeWork\\HM_23\\DBmyGarage\\DBmyGarage\\MyGarageDB.csproj",
+      "projectName": "MyGarageDB",
+      "projectPath": "D:\\My C#\\LessonCourse\\TMS_HomeWork\\HM_23\\DBmyGarage\\DBmyGarage\\MyGarageDB.csproj",
       "packagesPath": "C:\\Users\\andrei\\.nuget\\packages\\",
       "outputPath": "D:\\My C#\\LessonCourse\\TMS_HomeWork\\HM_23\\DBmyGarage\\DBmyGarage\\obj\\",
       "projectStyle": "PackageReference",

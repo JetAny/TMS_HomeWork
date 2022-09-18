@@ -1,4 +1,4 @@
-﻿namespace MyGarage
+﻿namespace MyGarageMVC
 {
     public class PasswordMiddleware
     {

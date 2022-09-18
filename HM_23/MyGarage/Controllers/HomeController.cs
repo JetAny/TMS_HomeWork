@@ -1,96 +1,79 @@
-﻿using MyGarage.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyGarageDB;
+using MyGarageDB.Interfaces;
+using MyGarageMVC.Intrefaces;
+using MyGarageMVC.Models;
 using System.Dynamic;
 
-namespace MyGarage.Controllers
+namespace MyGarageMVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICreateTransportService _createTransportService;
+        private readonly IGetAllGarageService _getAllGarageService;
+        private readonly IGetTransportService _getTransportService;
+        private readonly IUpdateTransportService _updateTransportService;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IDbContext _dbContext;
+
+        public HomeController(
+            IDbContext dbContext,
+            ILogger<HomeController> logger,
+            ICreateTransportService createTransportService,
+            IGetAllGarageService getAllGarageService,
+            IGetTransportService getTransportService,
+            IUpdateTransportService updateTransportService)
         {
             _logger = logger;
+            _dbContext = dbContext;
+            _createTransportService = createTransportService;
+            _getAllGarageService = getAllGarageService;
+            _getTransportService = getTransportService;
+            _updateTransportService = updateTransportService;
         }
-        Garage garage1 = new Garage();
+       
 
         [HttpGet]
         public IActionResult Index()
         {
+            _createTransportService.Create();
+ 
             return View();
         }
+
+
         [HttpGet]
         public IActionResult Input()
         {
             dynamic mymodel = new ExpandoObject();
-            mymodel.Garages = DB.garages;
-            return View(mymodel);
+            mymodel.Garage = _getAllGarageService.GetAll();
+            return View("Input",mymodel);
         }
         [HttpGet]
         public IActionResult InputTrans(int IdGarage)
         {
             dynamic mymodel = new ExpandoObject();
-            foreach (var item in DB.garages)
-            {
-                if (item.Id == IdGarage)
-                {
-                    mymodel.Transport = item.transportOnGarage;
-                    break;
-                }
-            }
+            mymodel.Garage = _getAllGarageService.GetAll();
             mymodel.IdGarage = IdGarage;
-
-            return View(mymodel);
+            return View("InputTrans",mymodel);
         }
         [HttpPost]
-        public IActionResult Сhange
-            (int IdGarage, int IdTransport)
+        public IActionResult Сhange (int IdGarage, int IdTransport)
         {
             dynamic mymodel = new ExpandoObject();
-
-            foreach (Garage garage in DB.garages)
-            {
-                if (garage.Id == IdGarage)
-                {
-                    foreach (ITransport transport in garage.transportOnGarage)
-                    {
-                        if (transport.IdTr == IdTransport)
-                        {
-                            mymodel.Transport = transport;
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
+            mymodel.Garage = _getAllGarageService.GetAll();
+            mymodel.Transport= _getTransportService.GetTransport(IdGarage, IdTransport);
+            mymodel.IdTransport=IdTransport;
             mymodel.IdGarage = IdGarage;
             return View("Change", mymodel);
         }
 
         [HttpPost]
-        public RedirectToActionResult editTransport(int IdGarage, int IdTransport, string fuelType, double fuelQuantity, string brand, int namber)
+        public RedirectToActionResult Update(int IdGarage, int IdTransport, string fuelType, int fuelQuantity, string brand, string namber)
         {
-            dynamic mymodel = new ExpandoObject();
-            foreach (Garage garage in DB.garages)
-            {
-                if (garage.Id == IdGarage)
-                {
-                    foreach (ITransport transport in garage.transportOnGarage)
-                    {
-                        if (transport.IdTr == IdTransport)
-                        {
-                            transport.brand = brand;
-                            transport.namber = namber;
-                            transport.fuelType = fuelType;
-                            transport.fuelQuantity = fuelQuantity;
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
-            mymodel.Garages = DB.garages;
-            return RedirectToAction("Index", "Transport", new { Idt = IdGarage });
+            _updateTransportService.Update(IdGarage,IdTransport, fuelType,  fuelQuantity,  brand,  namber);
+            return RedirectToAction("InputTrans", "Home", new { Sity_garage = IdGarage });
         }
 
     }

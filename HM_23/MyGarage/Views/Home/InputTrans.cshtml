@@ -10,37 +10,44 @@
 @model dynamic
 
       <body>
-        @{
-            ViewData["Title"] = "Список машин";
-        }
-        <h3>Машина</h3>
-        <table class="table-condensed">
-            <tr>
-                <td>  Id машины</td>
-                <td>  Номер   </td>
-                <td>     Марка  </td>
-                <td>    Вид топлива   </td>
-                <td>    Кол-во топлива</td>
-                 <td>    Id гаража</td>
-                  <td>    Id машины</td>
-            </tr>
-            @foreach (var transport in Model.Transport)
-            {
-                <tr>
-                    <td>@transport.IdTr </td>
-                    <td>@transport.namber </td>                   
-                    <td>@transport.brand  </td>
-                    <td>@transport.fuelType  </td>
-                    <td>@transport.fuelQuantity</td>
-                    <td> 
-                        <form action="~/Home/Сhange" method="post">
-                            <input type="text" name="IdGarage" value='@Model.IdGarage' />
-                            <input type="text" name="IdTransport" value='@transport.IdTr' />
-                            <button type="submit">Изменить</button>
-                        </form>
-                </tr>
+            @{
+                ViewData["Title"] = "Список машин";
             }
-        </table>
+            <h3>Машина</h3>
+            <table class="table-condensed">
+                <tr>
+                    <td>  Id машины</td>
+                    <td>&emsp;Марка</td>
+                    <td>&emsp;В рейсе</td>
+                    <td>&emsp;Номер</td>                
+                    <td>&emsp;Вид трансп</td>
+                     <td>&emsp;Id гаража</td>
+                    <td>&emsp;Кол-во топлива</td>               
+                </tr>
+                @foreach(var g in Model.Garage)
+                    {
+                        @foreach (var t in g.transportModel)
+                        {
+                            <tr>
+                                <td>@t.IdTr</td>
+                                <td>@t.Brand</td>
+                                <td>@t.OnRoad</td>
+                                <td>@t.Namber</td>
+                                <td>@t.Type.TypeTrans</td>
+                                <td>@t.FuelType</td>
+                                <td>@t.FuelQuntity</td> 
+                                <td>
+                                    <form action="~/Home/Сhange" method="post">
+                                        <input type="hidden" name="IdGarage" value='@Model.IdGarage' />
+                                        <input type="hidden" name="IdTransport" value='@t.IdTr' />
+                                        <button type="submit">Изменить</button>
+                                    </form>
+                                </td>
+                            </tr> 
+                            
+                        }
+                    }
+            </table>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
        </body>
 </html>

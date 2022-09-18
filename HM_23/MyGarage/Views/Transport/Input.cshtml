@@ -1,5 +1,5 @@
-﻿@using MyGarage
-@using MyGarage.Models;
+﻿@using MyGarageMVC
+@using MyGarageMVC.Models;
 
 @model dynamic
 @{
@@ -10,21 +10,22 @@
     
 </div>
 <table class="table">
-    @foreach(Garage garage in Model.Garages)
-    {
-        if (garage.Id != 0)
+    @foreach(var g in Model.Garage)
+    {        
+        <tr>
+            <td> в гараже № @g.Id</td>
+            <td> в городе @g.Sity</td>
+        </tr>
+        @foreach (var t in g.transportModel)
         {
-            <tr><td>Гараж № @garage.Id</td><td> в городе @garage.Sity</td></tr>
-
-            foreach (ITransport p in garage.transportOnGarage)
-            {
-                <tr><td>@p.IdTr</td><td>@p.brand</td><td>@p.namber</td><td>@p.fuelType</td><td>@p.fuelQuantity</td></tr>
-            }
-
-        }
-        else
-        {
-            <tr><td>Id</td><td>Марка</td><td>номер</td><td>вид топлива</td><td>количество топлива</td></tr>
+            <tr>
+                <td>@t.IdTr</td>
+                <td>@t.Brand</td>
+                <td>@t.Namber</td>
+                <td>@t.Type.TypeTrans</td>
+                <td>@t.FuelType</td>
+                <td>@t.FuelQuntity</td>
+            </tr>
         }
     }    
 </table>

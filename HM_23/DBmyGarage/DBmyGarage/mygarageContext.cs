@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using DBmyGarage.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace DBmyGarage
+using MyGarageDB.Interfaces;
+
+namespace MyGarageDB
 {
     public partial class mygarageContext : DbContext, IDbContext
     {
@@ -17,18 +15,18 @@ namespace DBmyGarage
         {
         }
 
-        
-        public virtual DbSet<Garage> Garage { get; set; } = null!;
-        public virtual DbSet<Transport> Transport { get; set; } = null!;
-        public virtual DbSet<Type> Type { get; set; } = null!;
-      
+
+        public virtual DbSet<GarageDB> Garages { get; set; } = null!;
+        public virtual DbSet<TransportDB> Transports { get; set; } = null!;
+        public virtual DbSet<TypeDB> Types { get; set; } = null!;
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySql("server=127.0.0.1;database=mygarage;uid=root;pwd=Tucha0425#", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.30-mysql"));
+                //To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseMySql("server=127.0.0.1;database=mygarage66;uid=root;pwd=Tucha0425#", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.30-mysql"));
             }
         }
 
@@ -37,26 +35,26 @@ namespace DBmyGarage
             modelBuilder.UseCollation("utf8mb4_0900_ai_ci")
                 .HasCharSet("utf8mb4");
 
-            
 
-            modelBuilder.Entity<Garage>(entity =>
+
+            modelBuilder.Entity<GarageDB>(entity =>
             {
-                entity.HasKey(c=>c.Id)
+                entity.HasKey(c => c.Id)
                 .HasName("PRIMARY");
-
+                entity.ToTable("garage");
                 entity.Property(e => e.Sity).HasMaxLength(20);
             });
 
-            modelBuilder.Entity<Transport>(entity =>
+            modelBuilder.Entity<TransportDB>(entity =>
             {
                 entity.HasKey(e => e.IdTr)
                     .HasName("PRIMARY");
 
                 entity.ToTable("transport");
 
-                entity.HasIndex(e => e.GarageId, "transport_FK");
+                //entity.HasIndex(e => e.GarageId, "transport_FK");
 
-                entity.HasIndex(e => e.TypeId, "transport_TP");
+                //entity.HasIndex(e => e.TypeId, "transport_TP");
 
                 entity.Property(e => e.Brand)
                     .HasMaxLength(20)
@@ -68,7 +66,7 @@ namespace DBmyGarage
                     .HasMaxLength(15)
                     .HasColumnName("fuelType");
 
-                entity.Property(e => e.GarageId).HasColumnName("garage_Id");
+                //entity.Property(e => e.GarageId).HasColumnName("garage_Id");
 
                 entity.Property(e => e.MaxSpeed).HasColumnName("maxSpeed");
 
@@ -76,30 +74,31 @@ namespace DBmyGarage
                     .HasMaxLength(10)
                     .HasColumnName("namber");
 
-                entity.Property(e => e.TypeId).HasColumnName("type_Id");
+                //entity.Property(e => e.TypeId).HasColumnName("type_Id");
 
-                entity.HasOne(d => d.Garage)
-                    .WithMany(p => p.Transports)
-                    .HasForeignKey(d => d.GarageId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("transport_FK");
+                //entity.HasOne(d => d.Garage)
+                //    .WithMany(p => p.Transports)
+                //    .HasForeignKey(d => d.GarageId)
+                //    .OnDelete(DeleteBehavior.Cascade)
+                //    .HasConstraintName("transport_FK");
 
-                entity.HasOne(d => d.Type)
-                    .WithMany(p => p.Transports)
-                    .HasForeignKey(d => d.TypeId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("transport_TP");
+                //entity.HasOne(d => d.Type)
+                //    .WithMany(p => p.Transports)
+                //    .HasForeignKey(d => d.TypeId)
+                //    .OnDelete(DeleteBehavior.Cascade)
+                //    .HasConstraintName("transport_TP");
             });
 
-            modelBuilder.Entity<Type>(entity =>
+            modelBuilder.Entity<TypeDB>(entity =>
             {
                 entity.HasKey(e => e.Id)
                     .HasName("PRIMARY");
-
+                entity.ToTable("type");
                 entity.Property(e => e.TypeTrans)
                     .HasMaxLength(10)
                     .HasColumnName("type");
             });
+
 
             OnModelCreatingPartial(modelBuilder);
         }

@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "HM19_garage": {
+    "MyGarageMVC": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
