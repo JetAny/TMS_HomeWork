@@ -1,0 +1,8 @@
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\MyGarage\obj\Debug\net6.0\MyGarageMVS.csproj.AssemblyReference.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\MyGarage\obj\Debug\net6.0\MyGarageMVS.GeneratedMSBuildEditorConfig.editorconfig
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\MyGarage\obj\Debug\net6.0\MyGarageMVS.AssemblyInfoInputs.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\MyGarage\obj\Debug\net6.0\MyGarageMVS.AssemblyInfo.cs
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\MyGarage\obj\Debug\net6.0\MyGarageMVS.csproj.CoreCompileInputs.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\MyGarage\obj\Debug\net6.0\MyGarageMVS.MvcApplicationPartsAssemblyInfo.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\MyGarage\obj\Debug\net6.0\MyGarageMVS.RazorAssemblyInfo.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\MyGarage\obj\Debug\net6.0\MyGarageMVS.RazorAssemblyInfo.cs

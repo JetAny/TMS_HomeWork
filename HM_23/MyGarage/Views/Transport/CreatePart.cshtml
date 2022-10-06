@@ -1,0 +1,11 @@
+﻿@*@using MyGarageMVC
+@model List<IAddParts>
+@{
+    ViewBag.Title = "addpart";
+}
+ 
+<h3>В списке @Model.Count деталей</h3>
+@foreach(IAddParts transport in Model)
+{
+    <p>@transport</p>
+}*@

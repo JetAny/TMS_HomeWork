@@ -1,0 +1,31 @@
+﻿@using MyGarageMVC
+@using MyGarageMVC.Models;
+
+@model dynamic
+@{
+    ViewData["Title"] = "Формирование гаржей";
+}
+<div class="text-center">
+    <h1 class="display-4">В гаражах находятся</h1>
+    
+</div>
+<table class="table">
+    @foreach(var g in Model.Garage)
+    {        
+        <tr>
+            <td> в гараже № @g.Id</td>
+            <td> в городе @g.Sity</td>
+        </tr>
+        @foreach (var t in g.transportModel)
+        {
+            <tr>
+                <td>@t.IdTr</td>
+                <td>@t.Brand</td>
+                <td>@t.Namber</td>
+                <td>@t.Type.TypeTrans</td>
+                <td>@t.FuelType</td>
+                <td>@t.FuelQuntity</td>
+            </tr>
+        }
+    }    
+</table>

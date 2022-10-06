@@ -1,0 +1,14 @@
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\MyGarageDB.csproj.AssemblyReference.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\MyGarageDB.GeneratedMSBuildEditorConfig.editorconfig
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\MyGarageDB.AssemblyInfoInputs.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\MyGarageDB.AssemblyInfo.cs
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\MyGarageDB.csproj.CoreCompileInputs.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\bin\Debug\net6.0\MyGarageDB.deps.json
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\bin\Debug\net6.0\MyGarageDB.runtimeconfig.json
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\bin\Debug\net6.0\MyGarageDB.dll
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\bin\Debug\net6.0\MyGarageDB.pdb
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\MyGarageDB.dll
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\refint\MyGarageDB.dll
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\MyGarageDB.pdb
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\MyGarageDB.genruntimeconfig.cache
+D:\My C#\LessonCourse\TMS_HomeWork\HM_23\DBmyGarage\DBmyGarage\obj\Debug\net6.0\ref\MyGarageDB.dll

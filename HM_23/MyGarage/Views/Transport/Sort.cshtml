@@ -1,0 +1,53 @@
+﻿@using MyGarageMVC.Models;
+
+@model dynamic
+@{
+    ViewData["Title"] = "MyGarageMVC";
+}
+<form class="form-inline">
+    <label>Выберите Garage:</label>
+    <select name="Sity_garage" class="form-control">
+        @foreach(var g in Model.Garage)
+        {
+            <option value="@g.Sity">@g.Sity</option>
+        }
+    </select>
+    <input type="submit" value="выбрать"/>
+</form>
+<br />
+<table class="table">
+    @foreach(var g in Model.Garage)
+    {                
+        @foreach (var t in g.transportModel)
+        {
+            if (Model.GarageSity == g.Sity)
+            {
+                <tr>
+                <td>@t.IdTr</td>
+                <td>@t.Brand</td>
+                <td>@t.Namber</td>
+                <td>@t.Type.TypeTrans</td>
+                <td>@t.FuelType</td>
+                <td>@t.FuelQuntity</td>
+            </tr> 
+            }
+           
+        }
+    }    
+</table>
+@*<table class="table">
+    @foreach (var t in Model.Garage.transportModel)
+    {
+        if (Model.GarageId == t.sityGarage)
+        {
+            <tr>
+                 <td>@t.IdTr</td>
+                 <td>@t.namber</td>
+                 <td>@t.brand</td>
+                 <td>@t.typeTransport</td>
+                 <td>@t.fuelType</td>
+                 <td>@t.fuelQuantity</td>
+            </tr>
+        }
+    }
+</table>*@

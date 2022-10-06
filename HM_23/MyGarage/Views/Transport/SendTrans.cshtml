@@ -1,0 +1,13 @@
+﻿@*@using MyGarageMVC
+
+
+@model List<ITransport>
+@{
+    ViewBag.Title = "Index";
+}
+ 
+<h3>В списке @Model.Count машин</h3>
+@foreach(ITransport transport in Model)
+{
+    <p>@transport</p>
+}*@

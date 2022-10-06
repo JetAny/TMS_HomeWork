@@ -1,0 +1,7 @@
+"IdTr","fuelType","fuelQuntity","brand","maxSpeed","namber","type_Id","garage_Id"
+1,disel,460,Neoplan,120,"2596-AE7",2,1
+2,disel,460,Neoplan,120,"2614-AE7",2,1
+3,disel,460,Neoplan,120,"6823-KE5",2,1
+4,gasoline,55,Scoda,180,"6891-HA7",1,2
+5,gasoline,65,Ford,190,"6811-HA7",1,2
+6,disel,460,Scania,120,"6193-MK5",2,1

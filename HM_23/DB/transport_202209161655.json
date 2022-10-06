@@ -1,0 +1,63 @@
+{
+"transport": [
+	{
+		"IdTr" : 1,
+		"fuelType" : "disel",
+		"fuelQuntity" : 460,
+		"brand" : "Neoplan",
+		"maxSpeed" : 120,
+		"namber" : "2596-AE7",
+		"type_Id" : 2,
+		"garage_Id" : 1
+	},
+	{
+		"IdTr" : 2,
+		"fuelType" : "disel",
+		"fuelQuntity" : 460,
+		"brand" : "Neoplan",
+		"maxSpeed" : 120,
+		"namber" : "2614-AE7",
+		"type_Id" : 2,
+		"garage_Id" : 1
+	},
+	{
+		"IdTr" : 3,
+		"fuelType" : "disel",
+		"fuelQuntity" : 460,
+		"brand" : "Neoplan",
+		"maxSpeed" : 120,
+		"namber" : "6823-KE5",
+		"type_Id" : 2,
+		"garage_Id" : 1
+	},
+	{
+		"IdTr" : 4,
+		"fuelType" : "gasoline",
+		"fuelQuntity" : 55,
+		"brand" : "Scoda",
+		"maxSpeed" : 180,
+		"namber" : "6891-HA7",
+		"type_Id" : 1,
+		"garage_Id" : 2
+	},
+	{
+		"IdTr" : 5,
+		"fuelType" : "gasoline",
+		"fuelQuntity" : 65,
+		"brand" : "Ford",
+		"maxSpeed" : 190,
+		"namber" : "6811-HA7",
+		"type_Id" : 1,
+		"garage_Id" : 2
+	},
+	{
+		"IdTr" : 6,
+		"fuelType" : "disel",
+		"fuelQuntity" : 460,
+		"brand" : "Scania",
+		"maxSpeed" : 120,
+		"namber" : "6193-MK5",
+		"type_Id" : 2,
+		"garage_Id" : 1
+	}
+]}
