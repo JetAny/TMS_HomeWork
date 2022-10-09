@@ -28,8 +28,7 @@ namespace MyGarageMVC.Controllers
             _deleteTransportService = deleteTransportService;
 
         }
-
-        //[Route("Input")]
+       
         [HttpGet]
         public IActionResult Input()
         {
@@ -40,8 +39,7 @@ namespace MyGarageMVC.Controllers
             mymodel.Garage = allGarageTtansport;
             return View("Input", mymodel);
         }
-
-        //[Route("Index")]
+        
         [HttpGet]
         public IActionResult Sort(string Sity_garage)
         {
@@ -51,17 +49,18 @@ namespace MyGarageMVC.Controllers
             return View("Sort", mymodel);
         }
 
-        //[Route("output")]
         [HttpGet]
         public IActionResult Output(int idGarage, int idTransport, int loading)
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.Garage = _getAllGarageService.GetAll();          
             mymodel.GarageId = idGarage;
+            mymodel.Loading=loading;
            _movingTransportService.Send(idGarage, idTransport);
             mymodel.Garage = _getAllGarageService.GetAll();           
             return View("Output", mymodel);
         }
+        [HttpGet]
         public IActionResult Return(int idGarage, int idTransport)
         {
             dynamic mymodel = new ExpandoObject();

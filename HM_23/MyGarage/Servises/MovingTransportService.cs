@@ -28,12 +28,14 @@ namespace MyGarageMVC.Models
                     {
                         movingTransport.Garage = garage;
                         movingTransport.OnRoad = false;
+                        _dbContext.Transports.Update(movingTransport);
                     }
                     else
                     {
                         movingTransport.OnRoad = true;
+                        _dbContext.Transports.Update(movingTransport);
                     }
-                    _dbContext.Transports.Update(movingTransport);
+                    
                     _dbContext.SaveChanges();
                 }
 

@@ -1,0 +1,21 @@
+﻿
+@using MyGarageMVC.Models;
+@model MyGarageMVC.Models.UserModel
+ 
+<form asp-antiforgery="true">
+    <div>
+        <div class="validation" asp-validation-summary="All"></div>
+        <div>
+           <label asp-for="Login"></label><br />
+            <input type="text" asp-for="Login" />
+            <span asp-validation-for="Login"></span>
+        </div>
+        <div>
+            <label asp-for="Password"></label><br />
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+            <input type="submit" value="Продолжить" method="post" />
+        </div>
+    </div>
+</form>

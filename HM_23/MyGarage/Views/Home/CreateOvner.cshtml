@@ -1,0 +1,34 @@
+﻿
+
+@using MyGarageMVC.Models;
+@model MyGarageMVC.Models.OvnerModel
+ 
+<form asp-antiforgery="true" action="~/Transport/Input">
+    <div>
+        <div class="validation" asp-validation-summary="All"></div>
+        <div>
+           <label asp-for="FirstName"></label><br />
+            <input type="text" asp-for="FirstName" />
+            <span asp-validation-for="FirstName"></span>
+        </div>
+        <div>
+            <label asp-for="LastName"></label><br />
+            <input type="text" asp-for="LastName" />
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div>
+            <label asp-for="email"></label><br />
+            <input asp-for="email" />
+            <span asp-validation-for="email"></span>
+        </div>
+        <div>
+            <label asp-for="PhoneNamber"></label><br />
+            <input asp-for="PhoneNamber" />
+            <span asp-validation-for="PhoneNamber"></span>
+        </div>
+        <div>
+            <input type="submit" value="Создать"  />
+        </div>
+    </div>
+</form>
+ 

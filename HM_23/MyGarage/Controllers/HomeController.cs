@@ -14,7 +14,6 @@ namespace MyGarageMVC.Controllers
         private readonly IGetAllGarageService _getAllGarageService;
         private readonly IGetTransportService _getTransportService;
         private readonly IUpdateTransportService _updateTransportService;
-
         private readonly IDbContext _dbContext;
 
         public HomeController(
@@ -30,7 +29,7 @@ namespace MyGarageMVC.Controllers
             _createTransportService = createTransportService;
             _getAllGarageService = getAllGarageService;
             _getTransportService = getTransportService;
-            _updateTransportService = updateTransportService;
+            _updateTransportService = updateTransportService;          
         }
        
 
@@ -41,8 +40,6 @@ namespace MyGarageMVC.Controllers
  
             return View();
         }
-
-
         [HttpGet]
         public IActionResult Input()
         {
@@ -75,6 +72,42 @@ namespace MyGarageMVC.Controllers
             _updateTransportService.Update(IdGarage,IdTransport, fuelType,  fuelQuantity,  brand,  namber);
             return RedirectToAction("InputTrans", "Home", new { Sity_garage = IdGarage });
         }
-
+        [HttpGet]
+        public IActionResult CreateOvner()
+        {
+            return View("CreateOvner");
+        }
+        [HttpPost]
+        public IActionResult CreateOvner(OvnerModel ovner)
+        {
+            if (ModelState.IsValid)
+            {
+                //return LocalRedirect("~/Transport/Sort");
+                return Content($"{ovner.FirstName} - {ovner.email}");
+            }            
+            else
+                return View("CreateOvner",ovner);
+        }
+        [HttpGet]
+        public IActionResult InputPass()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult InputPass(UserModel user)
+        {
+            if (user.Login == "pp")
+            {
+                return LocalRedirect("~/Transport/Sort");
+            }
+            if (user.Login == "ss")
+            {
+                return RedirectToAction("CreateOvner");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }

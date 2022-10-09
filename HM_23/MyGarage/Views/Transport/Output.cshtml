@@ -28,7 +28,9 @@
                                     {
                                         @foreach (var t in g.transportModel)
                                         {
-                                            <option 
+                                           if (@t.OnRoad == false)
+                                            {
+                                             <option 
                                                  value="@t.IdTr">
                                                 
                                                 <tr>
@@ -38,9 +40,9 @@
                                                     <td>@t.Type.TypeTrans</td>
                                                     <td>@t.FuelType</td>
                                                     <td>@t.FuelQuntity</td>
-                                                </tr> 
-                                                
-                                            </option>
+                                                </tr>                                                 
+                                             </option>
+                                            }
                                         }
                                     }
                                 }
@@ -69,6 +71,8 @@
                                         <td>@t.Type.TypeTrans</td>
                                         <td>@t.FuelType</td>
                                         <td>@t.FuelQuntity</td>
+                                        @*<td>@t.Model.Loading</td>*@
+
                                     </tr>                                
                                 }                                        
                             }
@@ -88,8 +92,10 @@
                           </tr>  
                          
                         @foreach (var t in g.transportModel)
-                        {                            
-                                <tr>
+                        {      
+                            if (@t.OnRoad==false)
+                            {
+                            <tr>
                                 <td>@t.IdTr</td>
                                 <td>@t.Brand</td>
                                 <td>@t.OnRoad</td>
@@ -98,6 +104,8 @@
                                 <td>@t.FuelType</td>
                                 <td>@t.FuelQuntity</td>
                             </tr> 
+                            }
+                                
                         }
                         
                     }   

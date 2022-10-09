@@ -13,31 +13,26 @@
                   <label>Выберите машину:</label>
                   <select name="idTransport" class="form-control">
                              @foreach(var g in Model.Garage)
-                                {
-                                    
-                                        @foreach (var t in g.transportModel)
-                                        {
+                                {                                   
+                                    @foreach (var t in g.transportModel)
+                                      {
                                          if (@t.OnRoad == true)
                                             {
-                                             <option 
-                                                 value="@t.IdTr">
-                                                
-                                                <tr>
-                                                    <td>@t.IdTr</td>
-                                                    <td>@t.Type.TypeTrans</td>
-                                                    <td>@t.Brand</td>
-                                                    <td>@t.Namber</td>                                                    
-                                                    <td>@t.FuelType</td>
-                                                    @*<td>@t.FuelQuntity</td>*@
-                                                </tr> 
-                                                
-                                             </option>
-                                          }                       
-                                      }
-                                  
-                              }
+                                                <option 
+                                                    value="@t.IdTr">                                               
+                                                      <tr>
+                                                        <td>@t.IdTr</td>
+                                                        <td>@t.Type.TypeTrans</td>
+                                                        <td>@t.Brand</td>
+                                                        <td>@t.Namber</td>                                                    
+                                                        <td>@t.FuelType</td>
+                                                        @*<td>@t.FuelQuntity</td>*@
+                                                      </tr>                                                
+                                               </option>
+                                            }                       
+                                      }                                 
+                                }
                   </select>
-                  @* <input type="submit" value="выбрать"/>*@
                     <br />
             <label>Выберите гараж куда вернуть машину:</label>
                   <select name="IdGarage" class="form-control">
@@ -86,9 +81,9 @@
                          
                         @foreach (var t in g.transportModel)
                         {
-                            @*if (@t.OnRoad=false)
-                            {  *@                              
-                                <tr>
+                            if (@t.OnRoad == false)
+                            {
+                             <tr>
                                 <td>@t.IdTr</td>
                                 <td>@t.Brand</td>
                                 <td>@t.OnRoad</td>
@@ -96,9 +91,8 @@
                                 <td>@t.Type.TypeTrans</td>
                                 <td>@t.FuelType</td>
                                 <td>@t.FuelQuntity</td>
-                            </tr> 
-                            @*}*@
-           
+                             </tr> 
+                            }                                
                         }
                         
                     }

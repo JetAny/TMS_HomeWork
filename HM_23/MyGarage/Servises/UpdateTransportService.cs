@@ -22,6 +22,7 @@ namespace MyGarageMVC.Servises
                 updateTransport.FuelQuntity = fuelQuantity;
                 updateTransport.Brand = brand;
                 updateTransport.Namber = namber;
+              
 
                 //updateTransport.Garage = IdGarage;
                 _dbContext.Transports.Update(updateTransport);
