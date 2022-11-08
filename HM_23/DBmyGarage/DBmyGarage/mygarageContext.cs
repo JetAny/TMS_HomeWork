@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
+using MyGarageDB.Entitys;
 using MyGarageDB.Interfaces;
 
 namespace MyGarageDB
@@ -19,7 +19,7 @@ namespace MyGarageDB
         public virtual DbSet<GarageDB> Garages { get; set; } = null!;
         public virtual DbSet<TransportDB> Transports { get; set; } = null!;
         public virtual DbSet<TypeDB> Types { get; set; } = null!;
-
+        public virtual DbSet<OvnerDB> Ovners { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -52,9 +52,6 @@ namespace MyGarageDB
 
                 entity.ToTable("transport");
 
-                //entity.HasIndex(e => e.GarageId, "transport_FK");
-
-                //entity.HasIndex(e => e.TypeId, "transport_TP");
 
                 entity.Property(e => e.Brand)
                     .HasMaxLength(20)
@@ -66,7 +63,6 @@ namespace MyGarageDB
                     .HasMaxLength(15)
                     .HasColumnName("fuelType");
 
-                //entity.Property(e => e.GarageId).HasColumnName("garage_Id");
 
                 entity.Property(e => e.MaxSpeed).HasColumnName("maxSpeed");
 
@@ -74,19 +70,7 @@ namespace MyGarageDB
                     .HasMaxLength(10)
                     .HasColumnName("namber");
 
-                //entity.Property(e => e.TypeId).HasColumnName("type_Id");
 
-                //entity.HasOne(d => d.Garage)
-                //    .WithMany(p => p.Transports)
-                //    .HasForeignKey(d => d.GarageId)
-                //    .OnDelete(DeleteBehavior.Cascade)
-                //    .HasConstraintName("transport_FK");
-
-                //entity.HasOne(d => d.Type)
-                //    .WithMany(p => p.Transports)
-                //    .HasForeignKey(d => d.TypeId)
-                //    .OnDelete(DeleteBehavior.Cascade)
-                //    .HasConstraintName("transport_TP");
             });
 
             modelBuilder.Entity<TypeDB>(entity =>

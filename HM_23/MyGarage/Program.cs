@@ -1,6 +1,7 @@
 using MyGarageDB;
 using MyGarageDB.Interfaces;
 using MyGarageMVC.Intrefaces;
+using MyGarageMVC.Middleware;
 using MyGarageMVC.Models;
 using MyGarageMVC.Servises;
 
@@ -27,9 +28,6 @@ namespace MyGarageMVC
             builder.Services.AddScoped<IReturnTransportService, ReturnTransportService>();
             builder.Services.AddScoped<IDeleteTransportService, DeleteTransportService>();
 
-
-
-
             var app = builder.Build();
 
             if (!app.Environment.IsDevelopment())
@@ -37,7 +35,6 @@ namespace MyGarageMVC
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -45,13 +42,16 @@ namespace MyGarageMVC
 
             app.UseAuthorization();
 
+
             //app.UseMiddleware<LoginMiddleware>();
             //app.UseMiddleware<PasswordMiddleware>();
 
+            //app.UseMiddleware<RoutingLoginMiddleware>();
+            //app.UseMiddleware<AuthenticationLoginMiddleware>();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Transport}/{action=Input}/{Id?}");
+                pattern: "{controller=Home}/{action=InputPass}/{Id?}");
 
             app.Run();
         }
