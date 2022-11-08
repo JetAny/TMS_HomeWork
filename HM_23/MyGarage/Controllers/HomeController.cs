@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyGarageDB;
 using MyGarageDB.Interfaces;
 using MyGarageMVC.Intrefaces;
 using MyGarageMVC.Models;
@@ -29,79 +28,81 @@ namespace MyGarageMVC.Controllers
             _createTransportService = createTransportService;
             _getAllGarageService = getAllGarageService;
             _getTransportService = getTransportService;
-            _updateTransportService = updateTransportService;          
+            _updateTransportService = updateTransportService;
         }
-       
+
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             _createTransportService.Create();
- 
+
             return View();
         }
         [HttpGet]
-        public IActionResult Input()
+        public async Task<IActionResult> Input()
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.Garage = _getAllGarageService.GetAll();
-            return View("Input",mymodel);
+            return View("Input", mymodel);
         }
         [HttpGet]
-        public IActionResult InputTrans(int IdGarage)
+        public async Task<IActionResult> InputTrans(int IdGarage)
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.Garage = _getAllGarageService.GetAll();
             mymodel.IdGarage = IdGarage;
-            return View("InputTrans",mymodel);
+            return View("InputTrans", mymodel);
         }
         [HttpPost]
-        public IActionResult Сhange (int IdGarage, int IdTransport)
+        public async Task<IActionResult> Сhange(int IdGarage, int IdTransport)
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.Garage = _getAllGarageService.GetAll();
-            mymodel.Transport= _getTransportService.GetTransport(IdGarage, IdTransport);
-            mymodel.IdTransport=IdTransport;
+           mymodel.Transport = _getTransportService.GetTransport(IdGarage, IdTransport);
+            mymodel.IdTransport = IdTransport;
             mymodel.IdGarage = IdGarage;
             return View("Change", mymodel);
         }
 
         [HttpPost]
-        public RedirectToActionResult Update(int IdGarage, int IdTransport, string fuelType, int fuelQuantity, string brand, string namber)
+        public async Task<RedirectToActionResult> Update(int IdGarage, int IdTransport, string fuelType, int fuelQuantity, string brand, string namber)
         {
-            _updateTransportService.Update(IdGarage,IdTransport, fuelType,  fuelQuantity,  brand,  namber);
+            _updateTransportService.Update(IdGarage, IdTransport, fuelType, fuelQuantity, brand, namber);
             return RedirectToAction("InputTrans", "Home", new { Sity_garage = IdGarage });
         }
         [HttpGet]
-        public IActionResult CreateOvner()
+        public async Task<IActionResult> CreateOvner()
         {
             return View("CreateOvner");
         }
         [HttpPost]
-        public IActionResult CreateOvner(OvnerModel ovner)
+        public async Task<IActionResult> CreateOvner(OvnerModel ovner)
         {
             if (ModelState.IsValid)
             {
                 //return LocalRedirect("~/Transport/Sort");
                 return Content($"{ovner.FirstName} - {ovner.email}");
-            }            
+            }
             else
-                return View("CreateOvner",ovner);
+                return View("CreateOvner", ovner);
         }
         [HttpGet]
-        public IActionResult InputPass()
+        public async Task<IActionResult> InputPass()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult InputPass(UserModel user)
+        public async Task<IActionResult> InputPass(UserModel user)
         {
             if (user.Login == "pp")
             {
+                await Task.Delay(1000);
                 return LocalRedirect("~/Transport/Sort");
             }
             if (user.Login == "ss")
             {
+                await Task.Delay(10000);
                 return RedirectToAction("CreateOvner");
             }
             else

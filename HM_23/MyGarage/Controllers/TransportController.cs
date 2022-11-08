@@ -30,19 +30,19 @@ namespace MyGarageMVC.Controllers
         }
        
         [HttpGet]
-        public IActionResult Input()
+        public async Task <IActionResult> Input()
         {
-
             dynamic mymodel = new ExpandoObject();
-
+            await Task.Delay(1000);
             List<GarageModel> allGarageTtansport = _getAllGarageService.GetAll();
-            mymodel.Garage = allGarageTtansport;
+           mymodel.Garage = allGarageTtansport;
             return View("Input", mymodel);
         }
         
         [HttpGet]
-        public IActionResult Sort(string Sity_garage)
+        public async Task<IActionResult> Sort(string Sity_garage)
         {
+
             dynamic mymodel = new ExpandoObject();
             mymodel.Garage = _getAllGarageService.GetAll();
             mymodel.GarageSity = Sity_garage;
@@ -50,7 +50,7 @@ namespace MyGarageMVC.Controllers
         }
 
         [HttpGet]
-        public IActionResult Output(int idGarage, int idTransport, int loading)
+        public async Task<IActionResult> Output(int idGarage, int idTransport, int loading)
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.Garage = _getAllGarageService.GetAll();          
@@ -61,7 +61,7 @@ namespace MyGarageMVC.Controllers
             return View("Output", mymodel);
         }
         [HttpGet]
-        public IActionResult Return(int idGarage, int idTransport)
+        public async Task<IActionResult> Return(int idGarage, int idTransport)
         {
             dynamic mymodel = new ExpandoObject();
             mymodel.Garage = _getAllGarageService.GetAll();
